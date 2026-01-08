@@ -1,0 +1,18 @@
+# misc
+.DS_Store
+*.pem
+
+# local env files
+.env
+.env*.local
+
+# Java
+target/
+*.class
+*.jar
+!wrapper/*.jar
+
+# Ignore frontend artifacts if present in root (legacy) or if leaking
+frontend/node_modules
+frontend/.next
+frontend/out
