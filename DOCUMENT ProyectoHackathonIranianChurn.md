@@ -315,9 +315,10 @@ Se importan librerías clave como:
 **train_test_split** divide **X**(características) e **y** (objetivo) en conjuntos de entrenamiento (80%) y prueba (20%), asegurando la **estratificación (stratify=y)** para mantener la proporción de clases en ambos conjuntos. 
 
 **random_state** garantiza la reproducibilidad. 
+
 Esto es crucial para evaluar objetivamente el rendimiento del modelo.
 
-## **1.6.2. Modelo De Regresión Logistica**
+###**1.6.1.1. Modelo de regresión logistica**
 
 Este bloque de código realiza la **normalización de datos** utilizando **MinMaxScaler de sklearn.preprocessing**. 
 
@@ -325,27 +326,7 @@ a.	Se importa la clase y se crea una instancia del **escalador (normalización =
 
 b.	Se aplica el **ajuste y la transformación (fit_transform)** a **X_train**, que escala las características al rango [0, 1]. 
 c.	El código convierte el array resultante **X_train** en un **DataFrame de Pandas** y muestra **5 muestras aleatorias (sample(5))** para inspeccionar los datos normalizados.
-**Resultado y Comentario**: Las variables **valor_cliente, total_mensajes** y **total_llamadas** han sido escaladas a valores entre 0 y 1.
-| valor_cliente | total_mensajes | total_llamadas |
-|---------------|----------------|----------------|
-| 1479          | 0.087361       | 0.01341        |
-| 1115          | 0.105236       | 0.00000        |
-| 297           | 0.422430       | 0.13410        |
-| 1991          | 0.077902       | 0.04023        |
-| 1247          | 0.014813       | 0.00000        |
- Este paso es crucial para algoritmos sensibles a la escala de las características, como la regresión logística, mejorando la convergencia y el rendimiento del modelo.
 
-## **1.6.2. Modelo De Regresión Logistica**
-
-Este bloque de código realiza la **normalización de datos** utilizando **MinMaxScaler de sklearn.preprocessing**. 
-
-a.	Se importa la clase y se crea una instancia del **escalador (normalización = MinMaxScaler())**.
-
-b.	Se aplica el **ajuste y la transformación (fit_transform)** a **X_train**, que escala las características al rango [0, 1]. 
-
-c.	El código convierte el array resultante **X_train** en un **DataFrame de Pandas** y muestra **5 muestras aleatorias (sample(5))** para inspeccionar los datos normalizados.
-
-**Resultado y Comentario**: Las variables **valor_cliente, total_mensajes** y **total_llamadas** han sido escaladas a valores entre 0 y 1.
 | valor_cliente | total_mensajes | total_llamadas |
 |---------------|----------------|----------------|
 | 1479          | 0.087361       | 0.01341        |
@@ -354,9 +335,22 @@ c.	El código convierte el array resultante **X_train** en un **DataFrame de Pan
 | 1991          | 0.077902       | 0.04023        |
 | 1247          | 0.014813       | 0.00000        |
 
-Este paso es crucial para algoritmos sensibles a la escala de las características, como la regresión logística, mejorando la convergencia y el rendimiento del modelo.
+**Resultado y Comentario**: Las variables **valor_cliente, total_mensajes** y **total_llamadas** han sido escaladas a valores entre 0 y 1.
+
+ Este paso es crucial para **algoritmos sensibles** a la escala de las características, como la **regresión logística**, mejorando la convergencia y el rendimiento del modelo.
 
 ## **1.6.2. Entrenamiento Modelo con Regularizacion**
+Este código aplica la **normalización aprendida** previamente con **MinMaxScaler (normalización)** al conjunto de datos de prueba, **X_test**. 
+a. La función **.transform()** escala los datos de **X_test** utilizando los parámetros (media y desviación estándar, o min y max) calculados sobre **X_train**. 
+
+b. Finalmente, **.copy()** asegura que se cree una nueva **copia modificada del DataFrame**, evitando posibles advertencias de **SettingWithCopyWarning** y garantizando que las modificaciones no afecten al original. 
+
+Es para evitar la **fuga de datos (data leakage)** y asegurar que el modelo se evalúe sobre datos que no ha visto durante el entrenamiento y preprocesamiento.
+
+**Resultado y Comentario**: El **DataFrame X_test** ahora contiene las características escaladas al mismo rango que **X_train**. 
+Es fundamental **transformar X_test** con el mismo escalador ajustado en **X_train** para mantener la **consistencia** en la escala de los datos.
+
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.2.%20Entrenamiento%20Modelo%20con%20Regularizacion.png
 
 Este código entrena un modelo de **Regresión Logística (LogisticRegression)**. 
 
@@ -380,19 +374,36 @@ b.	Se evalúa el rendimiento del modelo mostrando un **classification_report (pr
 
 Los resultados sugieren que el modelo es mejor identificando la **clase mayoritaria ('No abandono')** que la minoritaria **('Abandono')**, lo cual es común en datasets desbalanceados, a pesar de usar **class_weight='balanced'**.
 
-### **1.6.2.1. Modelo Regresión Logistica Ridge**
+### **1.6.2.1. Importancia de las Características del Modelo**
+
+Este código visualiza la **importancia de las características** de un **modelo de regresión logística**. 
+
+a. Calcula la importancia a partir de los **coeficientes** del modelo y la **normaliza**. 
+
+b. Luego, **crea un DataFrame** para ordenarlas y las 
+
+c. Muestra en un **gráfico de barras (sns.barplot)**. El gráfico incluye un título, etiquetas de ejes y los valores porcentuales de importancia sobre cada barra, facilitando la interpretación.
+
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.2.1.%20Importancia%20de%20las%20Caracter%C3%ADsticas%20del%20Modelo.png
+
+**Resultado y Comentario**: El gráfico de barras muestra la importancia relativa de cada característica **(valor_cliente, total_mensajes, total_llamadas)** en el modelo, con sus porcentajes.
+
+ Esto ayuda a identificar qué variables tienen mayor impacto en la predicción del abandono, siendo crucial para la **interpretabilidad** del modelo.
+
+### **1.6.2.1. Modelo Regresión Logistica Ridge **
 
 Este código visualiza la importancia de las características de un modelo de **regresión logística Ridge**. 
 
-a.	Calcula la **importancia (importanciamdRgLgRige)** a partir de los coeficientes del modelo y la normaliza. 
+a.	Calcula la **importancia (importanciamdRgLgRidge)** a partir de los coeficientes del modelo y la normaliza. 
 
 b.	Crea un DataFrame para ordenarlas y las 
 
 c.	Muestra en un **gráfico de barras (sns.barplot)**. El gráfico tiene un título, etiquetas de ejes y los valores porcentuales de importancia sobre cada barra, facilitando la interpretación.
 
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.2.1.%20Entrenamiento%20Modelo%20Regresi%C3%B3n%20Logaritmica%20Ridge.png
+
 **Resultado y Comentario**: El gráfico de barras muestra la importancia relativa de cada característica **(valor_cliente, total_mensajes, total_llamadas)** en el **modelo Ridge**, con sus porcentajes.
 
-INSERTAR IMAGEN
 
 Esto ayuda a identificar qué variables tienen mayor impacto en la predicción del abandono, siendo crucial para la interpretabilidad del modelo.
 
