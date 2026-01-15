@@ -9,7 +9,7 @@ La solución completa combina:
 * ⚙️ **Backend** (Java + Spring Boot) para exponer la predicción mediante una API REST.
 * 🎨 **Frontend** (Next.js) para visualizar las métricas y probar el modelo (Mock).
 
----
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/GRAFICO%20N%C2%B0%201%20VENTAS%20TOTALES.pdf
 
 ## 📂 Estructura del Repositorio
 
@@ -112,3 +112,4 @@ Proyecto para el **Oracle ONE Hackathon**.
 *   **Frontend**: Next.js Team
 *   **Backend**: Java/Spring Team
 *   **Data Science**: Python/ML Team
+
