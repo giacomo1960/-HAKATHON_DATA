@@ -216,6 +216,7 @@ c.	Las demás columnas son descartadas ** con(remainder='drop')**.
 d.	La transformación se aplica a **X**, creando **X_prepared**.
 
 **Shape original**    : (3150, 13)
+
 **Shape transformado**: (3150,  6)
 
 **Resultado y Comentario**: El **shape** original **(3150, 13)** se reduce a **(3150, 6)**. Esta transformación es clave para preparar los **datos categóricos** para modelos de aprendizaje automático que requieren entrada numérica, como la **regresión logística**. 
