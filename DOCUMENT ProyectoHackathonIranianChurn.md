@@ -46,7 +46,7 @@ Esto ayuda a optimizar el uso de memoria y asegura la correcta manipulación de 
 
 **DataFrame dfEsp**
 contiene 3150 entradas (filas) y 14 columnas.
-
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.2.VALIDACION%20INICIAL%20DATAFRAME%20ORIGINAL.png
 Una observación crucial es que todas las columnas tienen 3150 valores no nulos, lo que indica que no hay valores faltantes en el conjunto de datos. 
 
 Los tipos de datos predominantes son enteros (int64), con una columna (Valor_cliente) de tipo decimal (float64). 
