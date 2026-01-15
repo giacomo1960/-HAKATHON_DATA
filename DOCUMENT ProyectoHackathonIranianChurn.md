@@ -46,7 +46,9 @@ Esto ayuda a optimizar el uso de memoria y asegura la correcta manipulación de 
 
 **DataFrame dfEsp**
 contiene 3150 entradas (filas) y 14 columnas.
+
 https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.2.VALIDACION%20INICIAL%20DATAFRAME%20ORIGINAL.png
+
 Una observación crucial es que todas las columnas tienen 3150 valores no nulos, lo que indica que no hay valores faltantes en el conjunto de datos. 
 
 Los tipos de datos predominantes son enteros (int64), con una columna (Valor_cliente) de tipo decimal (float64). 
@@ -145,6 +147,8 @@ c. la transforma a binaria (1 o 0) usando un mapeo (mapping), asegurando el tipo
 
 d. Finalmente, muestra la distribución de 'abandono' con value_counts().
 
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.4.1.%20Auditoria%20De%20La%20Variable%20Objetivo.png
+
 **Resultado y Comentario**: La salida muestra 2565 'No abandono' (0) y 585 'Abandono' (1). 
 
 Esta distribución desbalanceada es crítica, ya que sugiere la necesidad de **estrategias de balanceo de clases** para modelos predictivos efectivos.
@@ -161,6 +165,8 @@ c. Calcula con df.isnull().sum() y muestra con display(nulls.head(30)) los valor
 
 d. Usa display(df.describe()) para presentar la estadísticas descriptivas para las columnas numéricas.
 
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.2.VALIDACION%20INICIAL%20DATAFRAME%20ORIGINAL.png
+
 **Resultado y Comentario**: El código revela que el **DataFrame df** tiene **3150 entradas** y **14 columnas**, sin valores nulos. 
 
 Esto es crucial ya que confirma la integridad de los datos antes de cualquier modelado, evitando pasos de imputación.
@@ -171,9 +177,9 @@ El código **df.columns** es una propiedad de los **DataFrames de Pandas** que p
 
 **Resultado y Comentario**: La salida es un objeto **Index** que contiene la lista ordenada de todos los nombres de las columnas: ['fallos_llamadas', 'quejas', ..., 'abandono']. 
 
-Esto es fundamental para verificar la estructura del DataFrame, confirmar que las columnas se han renombrado correctamente y referenciarlas en operaciones posteriores. 
+Esto es **fundamental** para **verificar** la estructura del DataFrame, **confirmar** que las columnas se han renombrado correctamente y **referenciarlas** en operaciones posteriores. 
 
-Es una validación rápida y esencial de la integridad de los datos.
+Es una **validación rápida y esencial** de la integridad de los datos.
 
 ## **1.4.4.Definición Variables Numéricas y Categóricas**
 
@@ -184,6 +190,8 @@ b. Realiza el **tratamiento de nulos**: imputa los valores faltantes en las colu
 **Resultado y Comentario**: La validación post-imputación (df.isnull().sum()) muestra que **no quedan nulos**. 
 
 Esto asegura que el dataset está limpio y listo para el preprocesamiento y modelado, sin interrupciones por datos faltantes.
+
+# **1.5. PREPARACION DE VARIABLES Y PREPROCESAMIENTO**
 
 ## **1.5.1. Preparación Datos Modelado**
 
@@ -207,6 +215,9 @@ c.	Las demás columnas son descartadas ** con(remainder='drop')**.
 
 d.	La transformación se aplica a **X**, creando **X_prepared**.
 
+**Shape original**    : (3150, 13)
+**Shape transformado**: (3150,  6)
+
 **Resultado y Comentario**: El **shape** original **(3150, 13)** se reduce a **(3150, 6)**. Esta transformación es clave para preparar los **datos categóricos** para modelos de aprendizaje automático que requieren entrada numérica, como la **regresión logística**. 
 
 ## **1.5.3. Recuperar Nombre Columnas Transformadas**
@@ -222,6 +233,8 @@ b.  Luego, **convierte** el array resultante **X_prepared** en un **DataFrame de
 c. Se **limpian los prefijos** como cat__ de los nombres de las columnas para mayor claridad. 
 
 d. Finalmente, se **imprimen las columnas finales** y se muestra una **muestra aleatoria** (X_prepared_df.sample(10)) del DataFrame transformado.
+
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.5.3.%20Recuperar%20Nombre%20Columnas%20Transformadas.png
 
 **Resultado y Comentario**: Muestra las columnas codificadas (grupo_edades_2, plan_tarifa_2, etc.) y un extracto de X_prepared_df.  
 
@@ -239,7 +252,9 @@ c.	se calcula el **VIF** para cada una con **variance_inflation_factor**.
 
 d.	Los resultados se ordenan y se muestran las 3 variables con el **VIF más alto** en **df_filt**.
 
-Resultado y Comentario: El display(df_filt) muestra las variables con mayor VIF. 
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.5.4.%20Deteccion%20de%20Multicolinealidad.png
+
+**Resultado y Comentario**: El display(df_filt) muestra las variables con mayor VIF. 
 
 Valores altos (usualmente >5 o >10) sugieren **fuerte multicolinealidad**, lo cual es crítico para la estabilidad y la interpretabilidad de los coeficientes en modelos lineales.
 
