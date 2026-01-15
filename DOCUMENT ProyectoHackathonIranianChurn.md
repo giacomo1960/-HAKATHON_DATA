@@ -1,6 +1,6 @@
  **1. DATASET IRANI BASE PREDICION**
 
-#**1.1. MODELO CON EL NUEVO DATASET IRANI**
+# **1.1. MODELO CON EL NUEVO DATASET IRANI**
 
 En este bloque de código importa las librerías necesarias para el preprocesamiento de datos, el modelado y la evaluación.
 
@@ -29,7 +29,7 @@ Librería para crear visualizaciones interactivas de manera sencilla.
 El modelo de regresión logística, un algoritmo fundamental de clasificación.
 
 
-#**1.2. VALIDACION INICIAL**
+# **1.2. VALIDACION INICIAL**
 
 Este bloque de código se encarga de la carga inicial y preparación de los datos:
 
@@ -54,9 +54,9 @@ Los tipos de datos predominantes son enteros (int64), con una columna (Valor_cli
 La cantidad de memoria utilizada por el DataFrame es de 344.7 KB.
 
 
-#**1.3.CARGA DATOS**
+# **1.3.CARGA DATOS**
 
-##**1.3.1. Carga completa con tipos optimizados**
+## **1.3.1. Carga completa con tipos optimizados**
 
 **DataFrame dfEsp** contiene las siguientes columnas, con sus respectivas descripciones:
 
@@ -88,7 +88,7 @@ La cantidad de memoria utilizada por el DataFrame es de 344.7 KB.
 
 **Abandono**: Variable objetivo que indica si el cliente ha abandonado el servicio (Churn) (generalmente 0 para no, 1 para sí).
 
-##**1.3.2. Normalizar Nombres de Columnas**
+## **1.3.2. Normalizar Nombres de Columnas**
 
 **DataFrame df** (con sus nombres de columna normalizados) contiene las siguientes columnas y sus descripciones:
 
@@ -120,7 +120,7 @@ La cantidad de memoria utilizada por el DataFrame es de 344.7 KB.
 
 **abandono**: Variable objetivo que indica si el cliente ha abandonado el servicio (Churn) (0 para no, 1 para sí).
 
-##**1.3.3. Validación de columnas clave**
+## **1.3.3. Validación de columnas clave**
 
 Asegura que el DataFrame df contenga todas las columnas esperadas. 
 
@@ -131,9 +131,9 @@ b. Luego, se crea una lista missing para identificar cualquier columna de expect
 c. La salida Columnas faltantes respecto al esquema esperado: [] confirma que todas las columnas definidas al inicio del proceso están presentes en el DataFrame df, garantizando la integridad de la estructura de los datos para análisis posteriores.
 
 
-#**1.4. AUDITORIA DE LA VARIABLE OBJETIVO Y CONSISTENCIA**
+# **1.4. AUDITORIA DE LA VARIABLE OBJETIVO Y CONSISTENCIA**
 
-##**1.4.1. AUDITORIA DE LA VARIABLE OBJETIVO**
+## **1.4.1. AUDITORIA DE LA VARIABLE OBJETIVO**
 
 Este código audita y normaliza la columna 'abandono'. Lo que hace es:
 
@@ -149,7 +149,7 @@ d. Finalmente, muestra la distribución de 'abandono' con value_counts().
 
 Esta distribución desbalanceada es crítica, ya que sugiere la necesidad de **estrategias de balanceo de clases** para modelos predictivos efectivos.
 
-#**1.4.2. Aplicacion de EDA**
+# **1.4.2. Aplicacion de EDA**
 
 Este código realiza un **Análisis Exploratorio de Datos (EDA)**, como sigue:
 
@@ -165,7 +165,7 @@ d. Usa display(df.describe()) para presentar la estadísticas descriptivas para 
 
 Esto es crucial ya que confirma la integridad de los datos antes de cualquier modelado, evitando pasos de imputación.
 
-##**1.4.3. Control de Tipo de Variables y Tratamiento de Nulos**
+## **1.4.3. Control de Tipo de Variables y Tratamiento de Nulos**
 
 El código **df.columns** es una propiedad de los **DataFrames de Pandas** que permite acceder y visualizar los nombres de todas las columnas presentes en el DataFrame df.
 
@@ -175,7 +175,7 @@ Esto es fundamental para verificar la estructura del DataFrame, confirmar que la
 
 Es una validación rápida y esencial de la integridad de los datos.
 
-##**1.4.4.Definición Variables Numéricas y Categóricas**
+## **1.4.4.Definición Variables Numéricas y Categóricas**
 
 a. Este código **clasifica las columnas** de df en **numéricas** (num_cols) y **categóricas** (cat_cols), excluyendo la variable objetivo. 
 
@@ -185,7 +185,7 @@ b. Realiza el **tratamiento de nulos**: imputa los valores faltantes en las colu
 
 Esto asegura que el dataset está limpio y listo para el preprocesamiento y modelado, sin interrupciones por datos faltantes.
 
-##**1.5.1. Preparación Datos Modelado**
+## **1.5.1. Preparación Datos Modelado**
 
 a. Este código es un paso **fundamental** en la preparación de datos para el modelado. Con **y = df['abandono'].astype('Int64')**, se extrae la columna **'abandono'** (la variable objetivo que queremos predecir) y se asegura que su tipo de dato sea Int64.
 
@@ -197,7 +197,7 @@ Esto prepara los datos para que X sea el conjunto de entrada para el modelo y y 
 
 Esta separación es crucial antes de entrenar cualquier modelo de aprendizaje automático.
 
-##**1.5.2. Inspeccion de Columnas Transformadas**
+## **1.5.2. Inspeccion de Columnas Transformadas**
 
 a.	Este código configura un **preprocesador** utilizando **ColumnTransformer** para transformar las características. 
 
@@ -209,7 +209,7 @@ d.	La transformación se aplica a **X**, creando **X_prepared**.
 
 **Resultado y Comentario**: El **shape** original **(3150, 13)** se reduce a **(3150, 6)**. Esta transformación es clave para preparar los **datos categóricos** para modelos de aprendizaje automático que requieren entrada numérica, como la **regresión logística**. 
 
-##**1.5.3. Recuperar Nombre Columnas Transformadas**
+## **1.5.3. Recuperar Nombre Columnas Transformadas**
 
 La reducción del número de columnas sugiere que solo las codificadas están siendo retenidas.
 
@@ -227,7 +227,7 @@ d. Finalmente, se **imprimen las columnas finales** y se muestra una **muestra a
 
 Es crucial para **verificar** que la codificación **OneHot** se aplicó correctamente y entender las nuevas características.
 
-##**1.5.4. Deteccion de Multicolinealidad**
+## **1.5.4. Deteccion de Multicolinealidad**
 
 Este código busca **multicolinealidad** entre las variables numéricas usando el **Factor de Inflación de la Varianza (VIF)**. 
 
@@ -243,7 +243,7 @@ Resultado y Comentario: El display(df_filt) muestra las variables con mayor VIF.
 
 Valores altos (usualmente >5 o >10) sugieren **fuerte multicolinealidad**, lo cual es crítico para la estabilidad y la interpretabilidad de los coeficientes en modelos lineales.
 
-##**1.5.5. Extracción variables con VIF**
+## **1.5.5. Extracción variables con VIF**
 
 El código **df_filt['Variable'].tolist()** se utiliza para **extraer** los nombres de las variables con el **VIF (Factor de Inflación de la Varianza)** más alto (en este caso, el top 3) y convertirlos en una **lista de Python.**
 
@@ -254,7 +254,7 @@ Este paso es **crucial** para identificar qué variables tienen una fuerte relac
 
 Estas variables podrían ser consideradas para ser **excluidas o transformadas** en modelos predictivos, especialmente en aquellos sensibles a la multicolinealidad, para **mejorar la estabilidad y la interpretabilidad** del modelo.
 
-##**1.5.6. Redefinición Dataframe segun variables con VIF**
+## **1.5.6. Redefinición Dataframe segun variables con VIF**
 
 El código **X = resultado[df_filt['Variable'].tolist()] redefine** el DataFrame **X** para que contenga **únicamente** las variables identificadas con **alta multicolinealidad** a través del análisis **VIF (df_filt['Variable'].tolist())**. 
 
@@ -264,9 +264,9 @@ Es decir, **X** ahora incluye solo **'valor_cliente', 'total_mensajes' y 'total_
 Este paso es **crucial** antes de entrenar modelos lineales, ya que el objetivo es **mitigar los efectos negativos** de la multicolinealidad, aunque también implica **descartar** otras variables relevantes que no tenían VIF alto.
 
 
-#1.6. ENTRENAMIENTO Y EVALUACION DE VARIABLES Y PROCESADAS
+# 1.6. ENTRENAMIENTO Y EVALUACION DE VARIABLES Y PROCESADAS
 
-##1.6.1. Entrenamiento y Evaluacion de Regresion Logistica
+## 1.6.1. Entrenamiento y Evaluacion de Regresion Logistica
 
 Este código prepara los datos para el **entrenamiento y evaluación de modelos** de aprendizaje automático. 
 
@@ -284,9 +284,9 @@ Se importan librerías clave como:
 
 Esto es crucial para evaluar objetivamente el rendimiento del modelo.
 
-#**1.6. ENTRENAMIENTO Y EVALUACION DE VARIABLES Y PROCESADAS**
+# **1.6. ENTRENAMIENTO Y EVALUACION DE VARIABLES Y PROCESADAS**
 
-##**1.6.1. Entrenamiento y Evaluacion de Regresion Logistica**
+## **1.6.1. Entrenamiento y Evaluacion de Regresion Logistica**
 
 Este código prepara los datos para el **entrenamiento y evaluación de modelos** de aprendizaje automático. 
 Se importan librerías clave como:
@@ -301,7 +301,7 @@ Se importan librerías clave como:
 **random_state** garantiza la reproducibilidad. 
 Esto es crucial para evaluar objetivamente el rendimiento del modelo.
 
-##**1.6.2. Modelo De Regresión Logistica**
+## **1.6.2. Modelo De Regresión Logistica**
 
 Este bloque de código realiza la **normalización de datos** utilizando **MinMaxScaler de sklearn.preprocessing**. 
 
@@ -319,7 +319,7 @@ c.	El código convierte el array resultante **X_train** en un **DataFrame de Pan
 | 1247          | 0.014813       | 0.00000        |
  Este paso es crucial para algoritmos sensibles a la escala de las características, como la regresión logística, mejorando la convergencia y el rendimiento del modelo.
 
-##**1.6.2. Modelo De Regresión Logistica**
+## **1.6.2. Modelo De Regresión Logistica**
 
 Este bloque de código realiza la **normalización de datos** utilizando **MinMaxScaler de sklearn.preprocessing**. 
 
@@ -340,7 +340,7 @@ c.	El código convierte el array resultante **X_train** en un **DataFrame de Pan
 
 Este paso es crucial para algoritmos sensibles a la escala de las características, como la regresión logística, mejorando la convergencia y el rendimiento del modelo.
 
-##**1.6.2. Entrenamiento Modelo con Regularizacion**
+## **1.6.2. Entrenamiento Modelo con Regularizacion**
 
 Este código entrena un modelo de **Regresión Logística (LogisticRegression)**. 
 
@@ -364,7 +364,7 @@ b.	Se evalúa el rendimiento del modelo mostrando un **classification_report (pr
 
 Los resultados sugieren que el modelo es mejor identificando la **clase mayoritaria ('No abandono')** que la minoritaria **('Abandono')**, lo cual es común en datasets desbalanceados, a pesar de usar **class_weight='balanced'**.
 
-###**1.6.2.1. Modelo Regresión Logistica Ridge**
+### **1.6.2.1. Modelo Regresión Logistica Ridge**
 
 Este código visualiza la importancia de las características de un modelo de **regresión logística Ridge**. 
 
@@ -385,7 +385,7 @@ La razón por la que el **'Modelo de Regresión Logística'** y el **'Modelo de 
 
 En esencia, son el mismo modelo siendo entrenado y evaluado con los mismos datos, lo que lleva a métricas idénticas.
 
-###**1.6.2.2. Modelo Regresión Logaritmica Lasso**
+### **1.6.2.2. Modelo Regresión Logaritmica Lasso**
 
 Este código entrena un modelo de **Regresión Logística Lasso(LogisticRegression)**. 
 
@@ -400,9 +400,9 @@ c.	El rendimiento se evalúa con un **classification_report (precisión, recall,
 El **modelo Lasso** mejora ligeramente la **exactitud** y el **recall** para la **clase minoritaria ('Abandono')** en comparación con **Ridge**, lo que sugiere que la **regularización L1** puede ser más efectiva para la selección de características en este caso.
 
 
-#**1.7. AJUSTE DE HIPERPARAMETROS**
+# **1.7. AJUSTE DE HIPERPARAMETROS**
 
-##**1.7.1. HIPERPARAMETROS**
+## **1.7.1. HIPERPARAMETROS**
 
 Este código realiza una **búsqueda de hiperparámetros (GridSearchCV)** para optimizar un modelo de **Regresión Logística**. 
 
@@ -418,7 +418,7 @@ d.	Finalmente, evalúa el **best_model** en el conjunto de entrenamiento balance
 
 Es una técnica clave para **afinar modelos** y mejorar su rendimiento general, especialmente importante en datasets desbalanceados.
 
-##**1.7.1. Balanceo de datos con undersampling**
+## **1.7.1. Balanceo de datos con undersampling**
 
 Este código implementa una técnica de **balanceo de clases** mediante **RandomUnderSampler** para abordar **datasets desbalanceados**. 
 a.	Se inicializa el **undersampling** con **random_state=42** para reproducibilidad
@@ -433,7 +433,7 @@ d.	Finalmente, se imprimen las **distribuciones** de las clases balanceadas.
 **Resultado y Comentario**: Se observa una distribución equilibrada con 396 muestras para cada clase (0 y 1), representando un 50% cada una.
 Este balanceo es crucial para evitar que los modelos se sesguen hacia la clase mayoritaria y mejoren su capacidad para predecir la clase minoritaria.
 
-##**1.7.2. Modelo Regresión Logistica Lasso Con Undersampling**
+## **1.7.2. Modelo Regresión Logistica Lasso Con Undersampling**
 
 Este código entrena un modelo de **Regresión Logística** (`LogisticRegression`) con **undersampling**. 
 
@@ -447,7 +447,7 @@ c. El rendimiento se evalúa con un **`classification_report`** y una **`Confusi
 
 Aunque la variable del modelo se llama **`log_reg_lassoUnder`**, la **penalización utilizada es `l2` (Ridge)**, lo que resulta en un comportamiento similar al modelo Ridge, pero con datos balanceados por undersampling.
 
-##**1.7.3. Modelo Regresión Logística Ridge Con Undersampling**
+## **1.7.3. Modelo Regresión Logística Ridge Con Undersampling**
 
 Este código entrena un modelo de **Regresión Logística Ridge (LogisticRegression)** con datos balanceados por **undersampling**. 
 
@@ -462,7 +462,7 @@ c. El rendimiento se evalúa con un **classification_report y una ConfusionMatri
 Los resultados son idénticos a los del modelo de **Regresión Logística original con class_weight='balanced'**, lo que refuerza que la **regularización L2** ya estaba aplicada y el balanceo por **undersampling** no alteró significativamente las métricas en este caso particular, o el efecto de **class_weight** en el modelo original ya mitigaba el desbalance.
 
 
-##**1.8.*Evalúación  exactitud de varios modelos de regresión logística entrenados** 
+## **1.8.*Evalúación  exactitud de varios modelos de regresión logística entrenados** 
 
 Este código **evalúa la exactitud** de varios modelos de regresión logística entrenados. 
 
