@@ -1,10 +1,5 @@
 # **1. DATASET IRANI BASE PREDICION**
 
-
-
-
-
-
 # **1.1. MODELO CON EL NUEVO DATASET IRANI**
 
 En este bloque de código importa las librerías necesarias para el preprocesamiento de datos, el modelado y la evaluación.
@@ -52,7 +47,7 @@ Esto ayuda a optimizar el uso de memoria y asegura la correcta manipulación de 
 **DataFrame dfEsp**
 contiene 3150 entradas (filas) y 14 columnas.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.2.VALIDACION%20INICIAL%20DATAFRAME%20ORIGINAL.png
+![1.2.VALIDACION INICIAL DATAFRAME ORIGINAL.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.2.VALIDACION%20INICIAL%20DATAFRAME%20ORIGINAL.png)
 
 Una observación crucial es que todas las columnas tienen 3150 valores no nulos, lo que indica que no hay valores faltantes en el conjunto de datos. 
 
