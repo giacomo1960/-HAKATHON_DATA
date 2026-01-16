@@ -147,7 +147,7 @@ c. la transforma a binaria (1 o 0) usando un mapeo (mapping), asegurando el tipo
 
 d. Finalmente, muestra la distribución de 'abandono' con value_counts().
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.4.1.%20Auditoria%20De%20La%20Variable%20Objetivo.png
+![1.4.1. Auditoria De La Variable Objetivo.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.4.1.%20Auditoria%20De%20La%20Variable%20Objetivo.png)
 
 **Resultado y Comentario**: La salida muestra 2565 'No abandono' (0) y 585 'Abandono' (1). 
 
