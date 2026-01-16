@@ -165,7 +165,7 @@ c. Calcula con df.isnull().sum() y muestra con display(nulls.head(30)) los valor
 
 d. Usa display(df.describe()) para presentar la estadísticas descriptivas para las columnas numéricas.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.2.VALIDACION%20INICIAL%20DATAFRAME%20ORIGINAL.png
+![1.2.VALIDACION INICIAL DATAFRAME ORIGINAL.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.2.VALIDACION%20INICIAL%20DATAFRAME%20ORIGINAL.png)
 
 **Resultado y Comentario**: El código revela que el **DataFrame df** tiene **3150 entradas** y **14 columnas**, sin valores nulos. 
 
@@ -235,7 +235,7 @@ c. Se **limpian los prefijos** como cat__ de los nombres de las columnas para ma
 
 d. Finalmente, se **imprimen las columnas finales** y se muestra una **muestra aleatoria** (X_prepared_df.sample(10)) del DataFrame transformado.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.5.3.%20Recuperar%20Nombre%20Columnas%20Transformadas.png
+![1.5.3. Recuperar Nombre Columnas Transformadas.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.5.3.%20Recuperar%20Nombre%20Columnas%20Transformadas.png)
 
 **Resultado y Comentario**: Muestra las columnas codificadas (grupo_edades_2, plan_tarifa_2, etc.) y un extracto de X_prepared_df.  
 
@@ -253,7 +253,7 @@ c.	se calcula el **VIF** para cada una con **variance_inflation_factor**.
 
 d.	Los resultados se ordenan y se muestran las 3 variables con el **VIF más alto** en **df_filt**.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.5.4.%20Deteccion%20de%20Multicolinealidad.png
+![1.5.4. Deteccion de Multicolinealidad.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.5.4.%20Deteccion%20de%20Multicolinealidad.png)
 
 **Resultado y Comentario**: El display(df_filt) muestra las variables con mayor VIF. 
 
@@ -350,7 +350,7 @@ Es para evitar la **fuga de datos (data leakage)** y asegurar que el modelo se e
 **Resultado y Comentario**: El **DataFrame X_test** ahora contiene las características escaladas al mismo rango que **X_train**. 
 Es fundamental **transformar X_test** con el mismo escalador ajustado en **X_train** para mantener la **consistencia** en la escala de los datos.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.2.%20Entrenamiento%20Modelo%20con%20Regularizacion.png
+![1.6.2. Entrenamiento Modelo con Regularizacion.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.2.%20Entrenamiento%20Modelo%20con%20Regularizacion.png)
 
 Este código entrena un modelo de **Regresión Logística (LogisticRegression)**. 
 
@@ -384,7 +384,7 @@ b. Luego, **crea un DataFrame** para ordenarlas y las
 
 c. Muestra en un **gráfico de barras (sns.barplot)**. El gráfico incluye un título, etiquetas de ejes y los valores porcentuales de importancia sobre cada barra, facilitando la interpretación.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.2.1.%20Importancia%20de%20las%20Caracter%C3%ADsticas%20del%20Modelo.png
+![1.6.2.1. Importancia de las Características del Modelo.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.2.1.%20Importancia%20de%20las%20Caracter%C3%ADsticas%20del%20Modelo.png)
 
 **Resultado y Comentario**: El gráfico de barras muestra la importancia relativa de cada característica **(valor_cliente, total_mensajes, total_llamadas)** en el modelo, con sus porcentajes.
 
@@ -399,7 +399,7 @@ b. Tras el entrenamiento con **X_train y y_train**, se realizan predicciones **(
 
 c. Luego, se evalúa el **rendimiento** del modelo mostrando un **classification_report (precisión, recall, f1-score)** y una **ConfusionMatrixDisplay**.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.3.%20Modelo%20Regresi%C3%B3n%20Logistica%20Ridge.png
+![1.6.3. Modelo Regresión Logistica Ridge.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.3.%20Modelo%20Regresi%C3%B3n%20Logistica%20Ridge.png)
 
 **Resultado y Comentario**: El modelo obtiene una **precisión** de 0.94 (clase 0) y 0.29 (clase 1), con un **recall** de 0.64 (clase 0) y 0.79 (clase 1). La **exactitud** general es del 0.66.
 
@@ -414,7 +414,7 @@ b. Normaliza para expresarlos como porcentaje y los organiza en un **DataFrame**
 
 c. Luego, genera un **gráfico de barras (sns.barplot)** donde cada barra representa una **característica** y su **altura**, su **importancia**. Se añaden título, etiquetas y los valores porcentuales sobre cada barra.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.3.1.%20Importancia%20de%20las%20Caracter%C3%ADsticas%20del%20Modelo%20%20Regresi%C3%B3n%20Ridge.png
+![1.6.3.1. Importancia de las Características del Modelo  Regresión Ridge.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.3.1.%20Importancia%20de%20las%20Caracter%C3%ADsticas%20del%20Modelo%20%20Regresi%C3%B3n%20Ridge.png)
 
 **Resultado y Comentario**: Un gráfico de barras que muestra que **'total_llamadas' (47.74%)** es la característica **más importante**, seguida de **'valor_cliente' (33.28%)** y **'total_mensajes' (18.98%)**.
 
@@ -435,7 +435,7 @@ b.	Tras el entrenamiento, se realizan predicciones **(yPrevisto)** sobre **X_tes
 
 c.	El rendimiento se evalúa con un **classification_report (precisión, recall, f1-score)** y una **ConfusionMatrixDisplay**.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.4%20Modelo%20Regresi%C3%B3n%20Logaritmica%20Lasso.png
+![1.6.4 Modelo Regresión Logaritmica Lasso.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.4%20Modelo%20Regresi%C3%B3n%20Logaritmica%20Lasso.png)
 
 **Resultado y Comentario**: La **exactitud** general es del 0.67, con una **precisión** de 0.95 para la clase 0 y 0.30 para la clase 1. El **recall** es 0.65 (clase 0) y 0.81 (clase 1).
 
@@ -471,7 +471,7 @@ c.	Luego, se aplica **fit_resample** a **X_train** y **y_train** para crear **xT
 
 d.	Finalmente, se imprimen las **distribuciones** de las clases balanceadas.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.1.%20Balanceo%20De%20Datos%20Con%20Undersampling.png
+![1.7.1. Balanceo De Datos Con Undersampling.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.1.%20Balanceo%20De%20Datos%20Con%20Undersampling.png)
 
 **Resultado y Comentario**: Se observa una distribución equilibrada con 396 muestras para cada clase (0 y 1), representando un 50% cada una.
 Este balanceo es crucial para evitar que los modelos se sesguen hacia la clase mayoritaria y mejoren su capacidad para predecir la clase minoritaria.
@@ -488,7 +488,7 @@ c. Luego, realiza **predicciones (predict)** sobre el **conjunto de prueba (X_te
 
 d. Evalúa el **rendimiento** con un **classification_report** y una **ConfusionMatrixDisplay**.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.2.%20Regresi%C3%B3n%20Log%C3%ADstica%20Con%20Undersampling.png
+![1.7.2. Regresión Logística Con Undersampling.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.2.%20Regresi%C3%B3n%20Log%C3%ADstica%20Con%20Undersampling.png)
 
 **Resultado y Comentario**:El modelo obtiene una **precisión** del 0.94 (clase 0) y 0.29 (clase 1), con un **recall** del 0.64 (clase 0) y 0.79 (clase 1). La **exactitud** general es del 0.66.
 
@@ -505,7 +505,7 @@ b. Tras el entrenamiento en los datos balanceados (`xTrainBal`, `yTrainBal`), se
 
 c. El rendimiento se evalúa con un **`classification_report`** y una **`ConfusionMatrixDisplay`**.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.3.%20Modelo%20Regresi%C3%B3n%20Logistica%20Lasso%20Con%20Undersampling.png
+![1.7.3. Modelo Regresión Logistica Lasso Con Undersampling.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.3.%20Modelo%20Regresi%C3%B3n%20Logistica%20Lasso%20Con%20Undersampling.png)
 
 **Resultado y Comentario**:La **exactitud** general es del 0.67, con una **precisión** de 0.95 (clase 0) y 0.30 (clase 1). El **recall** es 0.65 (clase 0) y 0.81 (clase 1).
 
@@ -521,7 +521,7 @@ b. Tras el entrenamiento en los **datos balanceados (xTrainBal, yTrainBal)**, se
 
 c. El rendimiento se evalúa con un **classification_report y una ConfusionMatrixDisplay**
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.4.%20Modelo%20Regresi%C3%B3n%20Log%C3%ADstica%20Ridge%20Con%20Undersampling.png
+![1.7.4. Modelo Regresión Logística Ridge Con Undersampling.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.4.%20Modelo%20Regresi%C3%B3n%20Log%C3%ADstica%20Ridge%20Con%20Undersampling.png)
 
 **Resultado y Comentario**: El modelo obtiene una **precisión** de 0.94 para la clase 0 y 0.29 para la clase 1, con un **recall** de 0.64 y 0.79 respectivamente. La **exactitud** general es del 0.66.
 
@@ -538,7 +538,7 @@ b. Un bucle **for** itera sobre esta lista, y para cada modelo, calcula y
 
 c. **muestra la exactitud (model.score(X_test, y_test))** en el conjunto de prueba.
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.8.Eval%C3%BAaci%C3%B3n%20exactitud%20modelos%20de%20regresi%C3%B3n%20log%C3%ADstica%20entrenados.png
+![1.8.Evalúación exactitud modelos de regresión logística entrenados.png](https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.8.Eval%C3%BAaci%C3%B3n%20exactitud%20modelos%20de%20regresi%C3%B3n%20log%C3%ADstica%20entrenados.png)
 
 **Resultado y Comentario**: La salida muestra la exactitud de cada uno de los seis modelos evaluados, por ejemplo, 'Modelo de regresión logistica es: 0.6603'.
  Este bloque es crucial para comparar rápidamente el rendimiento de los diferentes modelos en términos de exactitud, lo que ayuda a identificar cuál es el más efectivo para predecir el abandono de clientes.
