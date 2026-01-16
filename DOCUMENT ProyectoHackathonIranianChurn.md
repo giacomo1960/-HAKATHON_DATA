@@ -538,9 +538,11 @@ b. Un bucle **for** itera sobre esta lista, y para cada modelo, calcula y
 
 c. **muestra la exactitud (model.score(X_test, y_test))** en el conjunto de prueba.
 
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.8.Eval%C3%BAaci%C3%B3n%20exactitud%20modelos%20de%20regresi%C3%B3n%20log%C3%ADstica%20entrenados.png
+
 **Resultado y Comentario**: La salida muestra la exactitud de cada uno de los seis modelos evaluados, por ejemplo, 'Modelo de regresión logistica es: 0.6603'.
  Este bloque es crucial para comparar rápidamente el rendimiento de los diferentes modelos en términos de exactitud, lo que ayuda a identificar cuál es el más efectivo para predecir el abandono de clientes.
 
-## Documentación
+
 
 
