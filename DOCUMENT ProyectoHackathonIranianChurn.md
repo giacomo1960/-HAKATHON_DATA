@@ -390,29 +390,42 @@ https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.2.1.%20Importancia%2
 
  Esto ayuda a identificar qué variables tienen mayor impacto en la predicción del abandono, siendo crucial para la **interpretabilidad** del modelo.
 
-### **1.6.2.1. Modelo Regresión Logistica Ridge **
+## **1.6.3. Modelo Regresión Logistica Ridge**
+Este código entrena un **modelo de Regresión Logística Ridge (LogisticRegression)**. 
 
-Este código visualiza la importancia de las características de un modelo de **regresión logística Ridge**. 
+a. Se configura con **max_iter=1000**, **regularización l2 (penalty='l2')**, el **optimizador lbfgs**, y **class_weight='balanced'** para manejar el desbalance de clases. 
 
-a.	Calcula la **importancia (importanciamdRgLgRidge)** a partir de los coeficientes del modelo y la normaliza. 
+b. Tras el entrenamiento con **X_train y y_train**, se realizan predicciones **(yPrevisto)** sobre **X_test**. 
 
-b.	Crea un DataFrame para ordenarlas y las 
+c. Luego, se evalúa el **rendimiento** del modelo mostrando un **classification_report (precisión, recall, f1-score)** y una **ConfusionMatrixDisplay**.
 
-c.	Muestra en un **gráfico de barras (sns.barplot)**. El gráfico tiene un título, etiquetas de ejes y los valores porcentuales de importancia sobre cada barra, facilitando la interpretación.
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.3.%20Modelo%20Regresi%C3%B3n%20Logistica%20Ridge.png
 
-https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.2.1.%20Entrenamiento%20Modelo%20Regresi%C3%B3n%20Logaritmica%20Ridge.png
+**Resultado y Comentario**: El modelo obtiene una **precisión** de 0.94 (clase 0) y 0.29 (clase 1), con un **recall** de 0.64 (clase 0) y 0.79 (clase 1). La **exactitud** general es del 0.66.
 
-**Resultado y Comentario**: El gráfico de barras muestra la importancia relativa de cada característica **(valor_cliente, total_mensajes, total_llamadas)** en el **modelo Ridge**, con sus porcentajes.
+Los resultados son idénticos a los del modelo de Regresión Logística anterior. Esto ocurre porque ambos modelos se configuraron con penalty='l2' y class_weight='balanced', lo que los hace funcionalmente el mismo modelo en este contexto.
 
+### **1.6.3.1. Importancia de las Características del Modelo  Regresión Ridge**
+Este código calcula y visualiza la **importancia de las características (Features)** de un modelo de **regresión logística** utilizando sus coeficientes. 
 
-Esto ayuda a identificar qué variables tienen mayor impacto en la predicción del abandono, siendo crucial para la interpretabilidad del modelo.
+a. Obtiene los **coeficientes absolutos (np.abs(log_reg.coef_[0]))**, 
+
+b. Normaliza para expresarlos como porcentaje y los organiza en un **DataFrame**. 
+
+c. Luego, genera un **gráfico de barras (sns.barplot)** donde cada barra representa una **característica** y su **altura**, su **importancia**. Se añaden título, etiquetas y los valores porcentuales sobre cada barra.
+
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.3.1.%20Importancia%20de%20las%20Caracter%C3%ADsticas%20del%20Modelo%20%20Regresi%C3%B3n%20Ridge.png
+
+**Resultado y Comentario**: Un gráfico de barras que muestra que **'total_llamadas' (47.74%)** es la característica **más importante**, seguida de **'valor_cliente' (33.28%)** y **'total_mensajes' (18.98%)**.
+
+Este gráfico es crucial para entender qué variables tienen mayor impacto en las predicciones del modelo, mejorando la interpretabilidad y la toma de decisiones, por ejemplo, en estrategias de retención de clientes.
 
 **NOTA** : 
 La razón por la que el **'Modelo de Regresión Logística'** y el **'Modelo de Regresión Logística Ridge'** muestran los mismos resultados de ¨precisión, recall y exactitud** es porque, al revisar el código, ambos modelos se inicializaron con la misma configuración: **LogisticRegression(max_iter=1000, penalty='l2', solver='lbfgs', class_weight='balanced')**.
 
 En esencia, son el mismo modelo siendo entrenado y evaluado con los mismos datos, lo que lleva a métricas idénticas.
 
-### **1.6.2.2. Modelo Regresión Logaritmica Lasso**
+## **1.6.4. Modelo Regresión Logaritmica Lasso**
 
 Este código entrena un modelo de **Regresión Logística Lasso(LogisticRegression)**. 
 
@@ -421,6 +434,8 @@ a.	Se configura con **regularización l1 (penalty='l1')**, el **solucionador lib
 b.	Tras el entrenamiento, se realizan predicciones **(yPrevisto)** sobre **X_test**. 
 
 c.	El rendimiento se evalúa con un **classification_report (precisión, recall, f1-score)** y una **ConfusionMatrixDisplay**.
+
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.6.4%20Modelo%20Regresi%C3%B3n%20Logaritmica%20Lasso.png
 
 **Resultado y Comentario**: La **exactitud** general es del 0.67, con una **precisión** de 0.95 para la clase 0 y 0.30 para la clase 1. El **recall** es 0.65 (clase 0) y 0.81 (clase 1).
 
@@ -452,15 +467,35 @@ a.	Se inicializa el **undersampling** con **random_state=42** para reproducibili
 
 b.	Se aplica **sampling_strategy='auto'** para igualar el número de muestras de la clase mayoritaria a la minoritaria. 
 
-
 c.	Luego, se aplica **fit_resample** a **X_train** y **y_train** para crear **xTrainBal** y **yTrainBal**, los cuales contienen las clases balanceadas. 
 
 d.	Finalmente, se imprimen las **distribuciones** de las clases balanceadas.
 
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.1.%20Balanceo%20De%20Datos%20Con%20Undersampling.png
+
 **Resultado y Comentario**: Se observa una distribución equilibrada con 396 muestras para cada clase (0 y 1), representando un 50% cada una.
 Este balanceo es crucial para evitar que los modelos se sesguen hacia la clase mayoritaria y mejoren su capacidad para predecir la clase minoritaria.
 
-## **1.7.2. Modelo Regresión Logistica Lasso Con Undersampling**
+## **1.7.2. Regresión Logística Con Undersampling**
+
+Este código entrena un modelo de **Regresión Logística** llamado **log_reg_under**.
+
+a. Se configura con un máximo de **1000 iteraciones (max_iter=1000)**, **regularización L2 (penalty='l2')**, el **optimizador lbfgs** y **class_weight='balanced'** para manejar el desbalance de clases. 
+
+b. El modelo se **ajusta (fit)** a los datos de entrenamiento balanceados **(xTrainBal y yTrainBal)**. 
+
+c. Luego, realiza **predicciones (predict)** sobre el **conjunto de prueba (X_test)** y 
+
+d. Evalúa el **rendimiento** con un **classification_report** y una **ConfusionMatrixDisplay**.
+
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.2.%20Regresi%C3%B3n%20Log%C3%ADstica%20Con%20Undersampling.png
+
+**Resultado y Comentario**:El modelo obtiene una **precisión** del 0.94 (clase 0) y 0.29 (clase 1), con un **recall** del 0.64 (clase 0) y 0.79 (clase 1). La **exactitud** general es del 0.66.
+
+Este modelo utiliza el undersampling para balancear las clases, lo que busca mejorar el rendimiento en la detección de la clase minoritaria.
+
+
+## **1.7.3. Modelo Regresión Logistica Lasso Con Undersampling**
 
 Este código entrena un modelo de **Regresión Logística** (`LogisticRegression`) con **undersampling**. 
 
@@ -470,11 +505,13 @@ b. Tras el entrenamiento en los datos balanceados (`xTrainBal`, `yTrainBal`), se
 
 c. El rendimiento se evalúa con un **`classification_report`** y una **`ConfusionMatrixDisplay`**.
 
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.3.%20Modelo%20Regresi%C3%B3n%20Logistica%20Lasso%20Con%20Undersampling.png
+
 **Resultado y Comentario**:La **exactitud** general es del 0.67, con una **precisión** de 0.95 (clase 0) y 0.30 (clase 1). El **recall** es 0.65 (clase 0) y 0.81 (clase 1).
 
 Aunque la variable del modelo se llama **`log_reg_lassoUnder`**, la **penalización utilizada es `l2` (Ridge)**, lo que resulta en un comportamiento similar al modelo Ridge, pero con datos balanceados por undersampling.
 
-## **1.7.3. Modelo Regresión Logística Ridge Con Undersampling**
+## **1.7.4. Modelo Regresión Logística Ridge Con Undersampling**
 
 Este código entrena un modelo de **Regresión Logística Ridge (LogisticRegression)** con datos balanceados por **undersampling**. 
 
@@ -483,6 +520,8 @@ a. Se configura con **regularización l2 (penalty='l2')**, el **optimizador lbfg
 b. Tras el entrenamiento en los **datos balanceados (xTrainBal, yTrainBal)**, se realizan predicciones **(yPrevisto)** sobre **X_test**. 
 
 c. El rendimiento se evalúa con un **classification_report y una ConfusionMatrixDisplay**
+
+https://github.com/giacomo1960/-HAKATHON_DATA/blob/main/1.7.4.%20Modelo%20Regresi%C3%B3n%20Log%C3%ADstica%20Ridge%20Con%20Undersampling.png
 
 **Resultado y Comentario**: El modelo obtiene una **precisión** de 0.94 para la clase 0 y 0.29 para la clase 1, con un **recall** de 0.64 y 0.79 respectivamente. La **exactitud** general es del 0.66.
 
